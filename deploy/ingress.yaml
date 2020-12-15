@@ -13,7 +13,6 @@ spec:
       http:
         paths:
           - path: /*
-            pathType: Prefix
             backend:
               serviceName: alex-gke-ingress-test-service
               servicePort: 80
