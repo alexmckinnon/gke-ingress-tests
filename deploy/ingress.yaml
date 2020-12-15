@@ -5,7 +5,7 @@ metadata:
   name: alex-gke-ingress-test-ingress
   namespace: alex-gke-ingress-test
   annotations:
-    networking.gke.io/pre-shared-certificates: alex-gke-one
+    ingress.gcp.kubernetes.io/pre-shared-cert: alex-gke-one
     kubernetes.io/ingress.allow-http: "false"
 spec:
   rules:
