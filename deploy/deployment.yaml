@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alex-gke-ingress-test-deployment
+  namespace: alex-gke-ingress-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: alex-gke-ingress-test-app
+      tier: backend
+  template:
+    metadata:
+      labels:
+        name: alex-gke-ingress-test-app
+        tier: backend
+    spec:
+      containers:
+      - name: web
+        image: gcr.io/google-samples/hello-app:1.0
+        ports:
+        - containerPort: 8080

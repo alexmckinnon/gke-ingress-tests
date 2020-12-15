@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: alex-gke-ingress-test-ingress
+  namespace: alex-gke-ingress-test
+  annotations:
+    networking.gke.io/pre-shared-certificates: alex-gke-one
+    kubernetes.io/ingress.allow-http: "false"
+spec:
+  rules:
+    - host: alex-gke-one.clio.dev
+      http:
+        paths:
+          - path: /*
+            pathType: Prefix
+            backend:
+              service:
+                name: alex-gke-ingress-test-service
+                port:
+                  number: 80
