@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: alex-gke-ingress-test-service
-  namespace: gke-ingress-test
+  namespace: alex-gke-ingress-test
 spec:
   selector:
     name: alex-gke-ingress-test-app
