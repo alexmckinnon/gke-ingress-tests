@@ -7,9 +7,17 @@ metadata:
   annotations:
     ingress.gcp.kubernetes.io/pre-shared-cert: alex-gke-one
     kubernetes.io/ingress.allow-http: "false"
+    networking.gke.io/managed-certificates: alex-gke-two
 spec:
   rules:
     - host: alex-gke-one.clio.dev
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: alex-gke-ingress-test-service
+              servicePort: 80
+    - host: alex-gke-two.clio.dev
       http:
         paths:
           - path: /*
